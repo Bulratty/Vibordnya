@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С какой ноги встать сегодня? | Научный анализ</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <h1>🦵 С какой ноги встать сегодня?</h1>
+            <p class="subtitle">Научно обоснованный анализ с учетом атмосферного давления, фазы луны и положения звёзд</p>
+            <button class="btn-primary" onclick="scrollToAnalysis()">Получить анализ за 20 ₽</button>
+        </div>
+    </header>
+
+    <!-- Article Section -->
+    <section class="article-section">
+        <div class="container">
+            <h2>📊 Исследование: важность выбора ноги</h2>
+            <div class="article-content">
+                <h3>Почему это важно?</h3>
+                <p>
+                    Группа независимых исследователей из Института Утренних Решений провела масштабное исследование, 
+                    в котором приняли участие 10 000 человек в течение 2 лет. Результаты поражают:
+                </p>
+                
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">73%</div>
+                        <div class="stat-text">успешных дней, когда встали с правильной ноги</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5x</div>
+                        <div class="stat-text">меньше стресса при правильном выборе</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89%</div>
+                        <div class="stat-text">улучшения настроения к вечеру</div>
+                    </div>
+                </div>
+
+                <h3>Методология</h3>
+                <p>
+                    Наши учёные учитывали более 50 параметров: атмосферное давление, влажность, 
+                    фазу луны, положение Меркурия, день недели, знак зодиака, цвет носков и даже 
+                    то, какой рукой вы чистили зубы накануне.
+                </p>
+
+                <h3>Ключевые выводы</h3>
+                <ul class="findings">
+                    <li> <strong>Атмосферное давление</strong> влияет на биомеханику подъёма с кровати на 34%</li>
+                    <li>🌙 <strong>Фаза луны</strong> определяет энергетический баланс конечностей</li>
+                    <li>☔ <strong>Вероятность дождя</strong> коррелирует с выбором ноги в 67% случаев</li>
+                    <li>⏰ <strong>Время подъёма</strong> меняет приоритетность ног каждые 17 минут</li>
+                </ul>
+
+                <div class="quote-box">
+                    <em>"Правильный выбор ноги с утра — это 80% успеха всего дня. Остальные 20% зависят от того, 
+                    с какой ноги вы встали вчера."</em>
+                    <br><strong>— Профессор И.П. Подушкин, доктор утренних наук</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="analysis-section">
+        <div class="container">
+            <h2>🎯 Получить персональный анализ</h2>
+            <p class="analysis-desc">
+                Наш алгоритм проанализирует текущие параметры:<br>
+                ✅ Атмосферное давление в вашем регионе<br>
+                ✅ Фазу луны и положение звёзд<br>
+                ✅ Вероятность осадков<br>
+                ✅ День недели и время года<br>
+                ✅ Ваш биоритм (рассчитаем автоматически)
+            </p>
+            
+            <div class="price-block">
+                <span class="price">20 ₽</span>
+                <span class="price-note">Мгновенный результат после оплаты</span>
+            </div>
+
+            <button class="btn-pay" onclick="pay()">
+                💳 Получить анализ за 20 ₽
+            </button>
+
+            <div id="payment-form" class="payment-form" style="display: none;">
+                <p>Перенаправление на оплату...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Result Section -->
+    <section id="result" class="result-section" style="display: none;">
+        <div class="container">
+            <h2>🎉 Ваш результат</h2>
+            <div class="result-card">
+                <div class="result-main" id="resultText"></div>
+                <div class="result-details" id="resultDetails"></div>
+                <div class="result-weather" id="resultWeather"></div>
+                <div class="result-footer">
+                    <p>✨ Приятного дня и правильного настроя!</p>
+                    <p class="small-text">P.S. Завтра всё может измениться, так что заходите снова!</p>
+                </div>
+            </div>
+            <button class="btn-secondary" onclick="location.reload()">Получить новый анализ</button>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer-section">
+        <div class="container">
+            <h2>📋 Публичная оферта</h2>
+            <div class="offer-content">
+                <h3>1. Общие положения</h3>
+                <p>
+                    1.1. Настоящий документ является публичной офертой (предложением) заключить договор 
+                    оказания информационных услуг на условиях, изложенных ниже.
+                </p>
+                <p>
+                    1.2. Услуга представляет собой предоставление персонализированной рекомендации 
+                    относительно выбора ноги для подъёма с кровати с учётом различных параметров 
+                    (погода, атмосферное давление, фаза луны и др.).
+                </p>
+
+                <h3>2. Предмет договора</h3>
+                <p>
+                    2.1. Исполнитель обязуется оказать Заказчику услугу по предоставлению анализа 
+                    и рекомендации, а Заказчик обязуется оплатить эту услугу.
+                </p>
+                <p>
+                    2.2. Результат услуги носит развлекательный характер и не является 
+                    научным, медицинским или иным профессиональным советом.
+                </p>
+
+                <h3>3. Стоимость и порядок оплаты</h3>
+                <p>3.1. Стоимость услуги составляет 20 (двадцать) рублей.</p>
+                <p>3.2. Оплата производится через платёжную систему Robokassa.</p>
+                <p>3.3. Услуга считается оказанной в момент предоставления результата на экране.</p>
+
+                <h3>4. Права и обязанности сторон</h3>
+                <p>4.1. Исполнитель обязуется предоставить результат в течение 1 минуты после оплаты.</p>
+                <p>4.2. Заказчик обязуется оплатить услугу до момента её оказания.</p>
+                <p>4.3. Исполнитель не несёт ответственности за настроение, погоду и другие внешние факторы.</p>
+
+                <h3>5. Отказ от услуги</h3>
+                <p>5.1. В связи с мгновенным характером оказания услуги, возврат средств возможен только в случае технической ошибки.</p>
+                <p>5.2. Для возврата средств свяжитесь с support@example.com</p>
+
+                <h3>6. Заключительные положения</h3>
+                <p>6.1. Акцепт оферты производится путём оплаты услуги.</p>
+                <p>6.2. Услуга носит развлекательный характер. Любые совпадения с реальностью случайны.</p>
+
+                <p style="margin-top: 30px; text-align: center;">
+                    <a href="oferta.txt" target="_blank" class="btn-offer-full">
+                        📄 Читать полную версию оферты
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-copyright">© 2025 ИП ТОПЧИЕВ А.С. Все права защищены.</p>
+            
+            <div class="footer-links">
+                <a href="oferta.txt" target="_blank" class="footer-link">
+                     Публичная оферта
+                </a>
+                <a href="#" class="footer-link">
+                    🔒 Политика конфиденциальности
+                </a>
+                <a href="mailto:support@example.com" class="footer-link">
+                    ✉️ support@example.com
+                </a>
+            </div>
+
+            <div class="footer-legal">
+                <p>ИНН: 702281279478 | ОГРНИП: 325580000022442</p>
+            </div>
+
+            <p class="disclaimer">
+                ️ Сервис носит развлекательный характер. 
+                Не является научным или медицинским советом.
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
