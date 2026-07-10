@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С какой ноги встать сегодня? | Научный анализ</title>
-    <!-- Встроенные стили (так надежнее для GitHub Pages) -->
+    
+    <!-- Официальный скрипт Robokassa -->
+    <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormSS.js?EncodedInvoiceId=rOukE3buWUS6jmaQU8TgEQ"></script>
+
+    <!-- Стили сайта -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -15,7 +19,7 @@
         }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
         
-        /* Hero */
+        /* Hero Section */
         .hero {
             background: rgba(255, 255, 255, 0.95); padding: 80px 20px; text-align: center;
             border-radius: 0 0 30px 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -23,7 +27,7 @@
         .hero h1 { font-size: 2.5em; margin-bottom: 20px; color: #667eea; }
         .subtitle { font-size: 1.2em; color: #666; margin-bottom: 40px; }
         
-        /* Кнопка скролла (вместо старой оплаты) */
+        /* Кнопка скролла */
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; border: none; padding: 18px 40px; font-size: 1.1em;
@@ -32,7 +36,7 @@
         }
         .btn-primary:hover { transform: translateY(-2px); }
 
-        /* Секции */
+        /* Общие стили секций */
         .article-section, .analysis-section, .result-section, .offer-section {
             background: white; padding: 60px 20px; margin: 40px 20px;
             border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -57,18 +61,23 @@
             padding: 25px; margin: 30px 0; border-radius: 0 10px 10px 0; font-style: italic;
         }
 
-        /* Блок анализа и цены */
+        /* Блок оплаты */
         .analysis-desc { color: #666; margin-bottom: 30px; line-height: 1.8; text-align: center; }
         .price-block { margin: 30px 0; text-align: center; }
         .price { font-size: 3em; font-weight: bold; color: #667eea; display: block; }
         .price-note { color: #999; font-size: 0.9em; }
 
-        /* Контейнер для кнопки Робокассы */
-        #robokassa-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            min-height: 50px; /* Чтобы не прыгало при загрузке */
+        /* ВАША КРАСИВАЯ КНОПКА ОПЛАТЫ */
+        .btn-pay {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white; border: none; padding: 20px 50px; font-size: 1.2em;
+            border-radius: 50px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(56, 239, 125, 0.4);
+            margin: 20px auto; display: block; width: fit-content;
+        }
+        .btn-pay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(56, 239, 125, 0.6);
         }
 
         /* Результат */
@@ -90,8 +99,7 @@
         .offer-content h3 { color: #764ba2; margin: 25px 0 15px; font-size: 1.3em; }
         .btn-offer-full {
             display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; text-decoration: none; padding: 15px 30px; border-radius: 30px;
-            margin-top: 20px;
+            color: white; text-decoration: none; padding: 15px 30px; border-radius: 30px; margin-top: 20px;
         }
         .footer {
             background: rgba(0, 0, 0, 0.3); color: white; text-align: center;
@@ -107,9 +115,6 @@
             .result-main { font-size: 1.8em; }
         }
     </style>
-    
-    <!-- Скрипт Робокассы (ВАШ КОД) -->
-    <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormSS.js?EncodedInvoiceId=rOukE3buWUS6jmaQU8TgEQ"></script>
 </head>
 <body>
 
@@ -125,7 +130,7 @@
     <!-- Article Section -->
     <section class="article-section">
         <div class="container">
-            <h2>📊 Исследование: важность выбора ноги</h2>
+            <h2> Исследование: важность выбора ноги</h2>
             <div class="article-content">
                 <h3>Почему это важно?</h3>
                 <p>Группа независимых исследователей из Института Утренних Решений провела масштабное исследование...</p>
@@ -138,7 +143,7 @@
 
                 <h3>Ключевые выводы</h3>
                 <ul class="findings">
-                    <li> Атмосферное давление влияет на биомеханику подъёма</li>
+                    <li>🔬 Атмосферное давление влияет на биомеханику подъёма</li>
                     <li>🌙 Фаза луны определяет энергетический баланс</li>
                 </ul>
 
@@ -150,7 +155,7 @@
         </div>
     </section>
 
-    <!-- Analysis Section (Здесь кнопка оплаты) -->
+    <!-- Analysis Section (ОПЛАТА ЗДЕСЬ) -->
     <section id="analysis" class="analysis-section">
         <div class="container">
             <h2>🎯 Получить персональный анализ</h2>
@@ -164,16 +169,20 @@
                 <span class="price-note">Мгновенный результат после оплаты</span>
             </div>
 
-            <!-- КОНТЕЙНЕР ДЛЯ КНОПКИ РОБОКАССЫ -->
-            <div id="robokassa-container"></div>
+            <!-- 1. СКРЫТАЯ НАСТОЯЩАЯ КНОПКА РОБОКАССЫ -->
+            <!-- Она здесь, но невидима для глаза. Скрипт Robokassa найдет это место и создаст кнопку тут. -->
+            <div id="robokassa-container" style="position: absolute; left: -9999px; opacity: 0;"></div>
 
-            <div id="payment-form" style="display: none;">
-                <p>Перенаправление на оплату...</p>
-            </div>
+            <!-- 2. ВАША КРАСИВАЯ КНОПКА -->
+            <!-- При клике она "нажимает" на скрытую кнопку Robokassa -->
+            <button class="btn-pay" onclick="triggerRobokassa()">
+                💳 Получить анализ за 20 ₽
+            </button>
+
         </div>
     </section>
 
-    <!-- Result Section -->
+    <!-- Result Section (Скрыт до оплаты) -->
     <section id="result" class="result-section" style="display: none;">
         <div class="container">
             <h2>🎉 Ваш результат</h2>
@@ -192,7 +201,7 @@
     <!-- Offer Section -->
     <section class="offer-section">
         <div class="container">
-            <h2> Публичная оферта</h2>
+            <h2>📋 Публичная оферта</h2>
             <div class="offer-content">
                 <p>1.1. Настоящий документ является публичной офертой...</p>
                 <p style="text-align: center; margin-top: 20px;">
@@ -214,14 +223,30 @@
         </div>
     </footer>
 
-    <!-- Логика сайта -->
+    <!-- Логика работы сайта -->
     <script>
-        // Функция скролла к анализу
+        // 1. Функция скролла к блоку оплаты
         function scrollToAnalysis() {
             document.getElementById('analysis').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Генерация результата (упрощенная версия для примера)
+        // 2. ГЛАВНАЯ МАГИЯ: Связываем вашу кнопку с Робой
+        function triggerRobokassa() {
+            // Ждем чуть-чуть, чтобы скрипт Робы успел отрисовать кнопку внутри div
+            setTimeout(() => {
+                // Ищем кнопку внутри скрытого контейнера
+                const realButton = document.querySelector('#robokassa-container button') || 
+                                   document.querySelector('#robokassa-container input[type="submit"]');
+                
+                if (realButton) {
+                    realButton.click(); // Нажимаем программно!
+                } else {
+                    alert('Платежная система загружается... Попробуйте через секунду.');
+                }
+            }, 500); // Задержка 0.5 сек для надежности
+        }
+
+        // 3. Генерация результата (простая версия)
         function showResult() {
             const legs = ['ЛЕВОЙ', 'ПРАВОЙ'];
             const randomLeg = legs[Math.floor(Math.random() * legs.length)];
@@ -235,14 +260,12 @@
             document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Проверка успешной оплаты при загрузке страницы
+        // 4. Проверка при загрузке: если вернулись с оплатой, показываем результат
         window.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             
-            // Если есть параметры OutSum и InvId, значит пользователь вернулся с оплаты
-            if (urlParams.has('OutSum') && urlParams.has('InvId')) {
-                // В реальном проекте тут нужна проверка SignatureValue (см. ниже)
-                console.log("Оплата прошла успешно!");
+            // Проверяем наличие параметров от Robokassa (OutSum) или нашей метки paid
+            if (urlParams.has('OutSum') || urlParams.get('paid') === '1') {
                 showResult();
             }
         });
