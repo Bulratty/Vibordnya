@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С какой ноги встать сегодня? | Научный анализ</title>
-    
-    <!-- Официальный скрипт Robokassa -->
-    <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormSS.js?EncodedInvoiceId=rOukE3buWUS6jmaQU8TgEQ"></script>
 
     <!-- Стили сайта -->
     <style>
-        /* ... (все ваши красивые стили остаются без изменений) ... */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -20,6 +14,7 @@
         }
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
         
+        /* Hero Section */
         .hero {
             background: rgba(255, 255, 255, 0.95); padding: 80px 20px; text-align: center;
             border-radius: 0 0 30px 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -27,6 +22,7 @@
         .hero h1 { font-size: 2.5em; margin-bottom: 20px; color: #667eea; }
         .subtitle { font-size: 1.2em; color: #666; margin-bottom: 40px; }
         
+        /* Кнопка скролла */
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; border: none; padding: 18px 40px; font-size: 1.1em;
@@ -35,6 +31,7 @@
         }
         .btn-primary:hover { transform: translateY(-2px); }
 
+        /* Общие стили секций */
         .article-section, .analysis-section, .result-section, .offer-section {
             background: white; padding: 60px 20px; margin: 40px 20px;
             border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
@@ -43,6 +40,7 @@
         h3 { color: #764ba2; margin: 30px 0 15px; font-size: 1.4em; }
         p { margin-bottom: 15px; text-align: justify; }
 
+        /* Статистика */
         .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
         .stat-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -50,6 +48,7 @@
         }
         .stat-number { font-size: 2.5em; font-weight: bold; margin-bottom: 10px; }
 
+        /* Списки и цитаты */
         .findings { list-style: none; padding-left: 0; }
         .findings li { padding: 10px 0; padding-left: 30px; position: relative; }
         .quote-box {
@@ -57,24 +56,28 @@
             padding: 25px; margin: 30px 0; border-radius: 0 10px 10px 0; font-style: italic;
         }
 
+        /* Блок оплаты */
         .analysis-desc { color: #666; margin-bottom: 30px; line-height: 1.8; text-align: center; }
         .price-block { margin: 30px 0; text-align: center; }
         .price { font-size: 3em; font-weight: bold; color: #667eea; display: block; }
         .price-note { color: #999; font-size: 0.9em; }
 
-        /* ВАША КРАСИВАЯ КНОПКА ОПЛАТЫ */
+        /* ВАША КРАСИВАЯ КНОПКА ОПЛАТЫ (ТЕПЕРЬ ЭТО ПРОСТО ССЫЛКА) */
         .btn-pay {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white; border: none; padding: 20px 50px; font-size: 1.2em;
             border-radius: 50px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(56, 239, 125, 0.4);
             margin: 20px auto; display: block; width: fit-content;
+            text-decoration: none; /* Убираем подчеркивание ссылки */
+            text-align: center;
         }
         .btn-pay:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(56, 239, 125, 0.6);
         }
 
+        /* Результат */
         .result-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; padding: 40px; border-radius: 20px; margin: 30px 0;
@@ -89,6 +92,7 @@
             font-size: 1em; border-radius: 30px; cursor: pointer; margin: 20px auto; display: block;
         }
 
+        /* Оферта и Футер */
         .offer-content h3 { color: #764ba2; margin: 25px 0 15px; font-size: 1.3em; }
         .btn-offer-full {
             display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -106,24 +110,6 @@
             .hero h1 { font-size: 1.8em; }
             .stats { grid-template-columns: 1fr; }
             .result-main { font-size: 1.8em; }
-        }
-
-        /* СПЕЦИАЛЬНЫЙ СТИЛЬ ДЛЯ СКРЫТИЯ РОБОКАССЫ */
-        #robokassa-container {
-            position: absolute !important;
-            left: -9999px !important;
-            top: -9999px !important;
-            width: 0 !important;
-            height: 0 !important;
-            overflow: hidden !important;
-            opacity: 0 !important;
-            pointer-events: none !important;
-        }
-        /* Принудительно скрываем любые кнопки внутри контейнера */
-        #robokassa-container button, 
-        #robokassa-container input,
-        #robokassa-container form {
-            display: none !important;
         }
     </style>
 </head>
@@ -166,10 +152,10 @@
         </div>
     </section>
 
-    <!-- Analysis Section (ОПЛАТА ЗДЕСЬ) -->
+    <!-- Analysis Section (ОПЛАТА ПО ССЫЛКЕ) -->
     <section id="analysis" class="analysis-section">
         <div class="container">
-            <h2>🎯 Получить персональный анализ</h2>
+            <h2> Получить персональный анализ</h2>
             <p class="analysis-desc">
                 Наш алгоритм проанализирует текущие параметры:<br>
                 ✅ Атмосферное давление<br>✅ Фазу луны<br>✅ Вероятность осадков
@@ -180,13 +166,11 @@
                 <span class="price-note">Мгновенный результат после оплаты</span>
             </div>
 
-            <!-- 1. СКРЫТАЯ НАСТОЯЩАЯ КНОПКА РОБОКАССЫ -->
-            <div id="robokassa-container"></div>
-
-            <!-- 2. ВАША КРАСИВАЯ КНОПКА -->
-            <button class="btn-pay" onclick="triggerRobokassa()">
+            <!-- ВАША КНОПКА-ССЫЛКА НА ОПЛАТУ -->
+            <!-- Просто заменяем button на a (ссылку) и вставляем href -->
+            <a href="https://auth.robokassa.ru/merchant/Invoice/-Z1HV3u3rUOww9JNNT4ttw" class="btn-pay" target="_blank">
                 💳 Получить анализ за 20 ₽
-            </button>
+            </a>
 
         </div>
     </section>
@@ -239,27 +223,7 @@
             document.getElementById('analysis').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 2. ГЛАВНАЯ МАГИЯ: Связываем вашу кнопку с Робой
-        function triggerRobokassa() {
-            // Даем скрипту Робы время загрузиться (1 секунда)
-            setTimeout(() => {
-                const container = document.getElementById('robokassa-container');
-                // Ищем форму или кнопку внутри
-                const form = container.querySelector('form');
-                const btn = container.querySelector('button') || container.querySelector('input[type="submit"]');
-                
-                if (btn) {
-                    btn.click();
-                } else if (form) {
-                    form.submit();
-                } else {
-                    // Если кнопка еще не появилась, пробуем еще раз через секунду
-                    alert('Загрузка платежной системы... Подождите секунду и нажмите снова.');
-                }
-            }, 1000); 
-        }
-
-        // 3. Генерация результата
+        // 2. Генерация результата
         function showResult() {
             const legs = ['ЛЕВОЙ', 'ПРАВОЙ'];
             const randomLeg = legs[Math.floor(Math.random() * legs.length)];
@@ -273,12 +237,12 @@
             document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 4. Проверка при загрузке (Работает и для GET, и для POST)
+        // 3. Проверка при загрузке: если вернулись с оплатой, показываем результат
         window.addEventListener('DOMContentLoaded', () => {
-            // Robokassa возвращает параметры OutSum, InvId, SignatureValue
-            // Мы проверяем их наличие
+            // Robokassa при возврате через GET добавляет параметры OutSum, InvId и др.
             const urlParams = new URLSearchParams(window.location.search);
             
+            // Если есть параметр OutSum (сумма оплаты), значит человек вернулся с кассы
             if (urlParams.has('OutSum')) {
                 showResult();
             }
