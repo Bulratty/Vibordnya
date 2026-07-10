@@ -4,336 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>С какой ноги встать сегодня? | Научный анализ</title>
+    <!-- Встроенные стили (так надежнее для GitHub Pages) -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6; color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero */
         .hero {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 80px 20px;
-            text-align: center;
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.95); padding: 80px 20px; text-align: center;
+            border-radius: 0 0 30px 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
-
-        .hero h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #667eea;
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
+        .hero h1 { font-size: 2.5em; margin-bottom: 20px; color: #667eea; }
+        .subtitle { font-size: 1.2em; color: #666; margin-bottom: 40px; }
+        
+        /* Кнопка скролла (вместо старой оплаты) */
         .btn-primary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            font-size: 1.1em;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
+            color: white; border: none; padding: 18px 40px; font-size: 1.1em;
+            border-radius: 50px; cursor: pointer; transition: transform 0.3s;
             box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
+        .btn-primary:hover { transform: translateY(-2px); }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
+        /* Секции */
         .article-section, .analysis-section, .result-section, .offer-section {
-            background: white;
-            padding: 60px 20px;
-            margin: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            background: white; padding: 60px 20px; margin: 40px 20px;
+            border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);
         }
+        h2 { color: #667eea; margin-bottom: 30px; font-size: 2em; text-align: center; }
+        h3 { color: #764ba2; margin: 30px 0 15px; font-size: 1.4em; }
+        p { margin-bottom: 15px; text-align: justify; }
 
-        .article-section h2, .analysis-section h2, .result-section h2, .offer-section h2 {
-            color: #667eea;
-            margin-bottom: 30px;
-            font-size: 2em;
-            text-align: center;
-        }
-
-        .article-content h3 {
-            color: #764ba2;
-            margin: 30px 0 15px;
-            font-size: 1.4em;
-        }
-
-        .article-content p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
+        /* Статистика */
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
         .stat-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
+            color: white; padding: 25px; border-radius: 15px; text-align: center;
         }
+        .stat-number { font-size: 2.5em; font-weight: bold; margin-bottom: 10px; }
 
-        .stat-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .findings {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .findings li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-        }
-
+        /* Списки и цитаты */
+        .findings { list-style: none; padding-left: 0; }
+        .findings li { padding: 10px 0; padding-left: 30px; position: relative; }
         .quote-box {
-            background: #f8f9ff;
-            border-left: 4px solid #667eea;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 0 10px 10px 0;
-            font-style: italic;
+            background: #f8f9ff; border-left: 4px solid #667eea;
+            padding: 25px; margin: 30px 0; border-radius: 0 10px 10px 0; font-style: italic;
         }
 
-        .analysis-desc {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.8;
-            text-align: center;
-        }
+        /* Блок анализа и цены */
+        .analysis-desc { color: #666; margin-bottom: 30px; line-height: 1.8; text-align: center; }
+        .price-block { margin: 30px 0; text-align: center; }
+        .price { font-size: 3em; font-weight: bold; color: #667eea; display: block; }
+        .price-note { color: #999; font-size: 0.9em; }
 
-        .price-block {
-            margin: 30px 0;
-            text-align: center;
-        }
-
-        .price {
-            font-size: 3em;
-            font-weight: bold;
-            color: #667eea;
-            display: block;
-        }
-
-        .price-note {
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        .btn-pay {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            color: white;
-            border: none;
-            padding: 20px 50px;
-            font-size: 1.2em;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(56, 239, 125, 0.4);
-            margin: 20px auto;
-            display: block;
-        }
-
-        .btn-pay:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(56, 239, 125, 0.6);
-        }
-
-        .result-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 20px;
-            margin: 30px 0;
-        }
-
-        .result-main {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .result-details {
-            font-size: 1.2em;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .result-weather {
-            background: rgba(255,255,255,0.2);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .result-footer {
-            margin-top: 30px;
-            text-align: center;
-        }
-
-        .small-text {
-            font-size: 0.9em;
-            opacity: 0.8;
-            margin-top: 10px;
-        }
-
-        .btn-secondary {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1em;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 20px auto;
-            display: block;
-        }
-
-        .offer-content h3 {
-            color: #764ba2;
-            margin: 25px 0 15px;
-            font-size: 1.3em;
-        }
-
-        .offer-content p {
-            margin-bottom: 10px;
-            text-align: justify;
-            font-size: 0.95em;
-        }
-
-        .btn-offer-full {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-offer-full:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
-        .footer {
-            background: rgba(0, 0, 0, 0.3);
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-            margin: 40px 20px;
-            border-radius: 20px;
-        }
-
-        .footer-copyright {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .footer-links {
+        /* Контейнер для кнопки Робокассы */
+        #robokassa-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .footer-link {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 20px;
-            transition: all 0.3s;
-            font-size: 0.95em;
-        }
-
-        .footer-link:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: white;
-            transform: translateY(-2px);
-        }
-
-        .footer-legal {
-            font-size: 0.85em;
-            opacity: 0.7;
-            margin-bottom: 15px;
-        }
-
-        .disclaimer {
             margin-top: 20px;
-            font-size: 0.9em;
-            opacity: 0.8;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
+            min-height: 50px; /* Чтобы не прыгало при загрузке */
         }
+
+        /* Результат */
+        .result-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; padding: 40px; border-radius: 20px; margin: 30px 0;
+        }
+        .result-main { font-size: 2.5em; font-weight: bold; margin-bottom: 20px; text-align: center; }
+        .result-details { font-size: 1.2em; margin-bottom: 20px; line-height: 1.6; }
+        .result-weather { background: rgba(255,255,255,0.2); padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .result-footer { margin-top: 30px; text-align: center; }
+        .small-text { font-size: 0.9em; opacity: 0.8; margin-top: 10px; }
+        .btn-secondary {
+            background: #667eea; color: white; border: none; padding: 15px 30px;
+            font-size: 1em; border-radius: 30px; cursor: pointer; margin: 20px auto; display: block;
+        }
+
+        /* Оферта и Футер */
+        .offer-content h3 { color: #764ba2; margin: 25px 0 15px; font-size: 1.3em; }
+        .btn-offer-full {
+            display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; text-decoration: none; padding: 15px 30px; border-radius: 30px;
+            margin-top: 20px;
+        }
+        .footer {
+            background: rgba(0, 0, 0, 0.3); color: white; text-align: center;
+            padding: 50px 20px; margin: 40px 20px; border-radius: 20px;
+        }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap; }
+        .footer-link { color: white; text-decoration: none; border: 1px solid rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 20px; }
+        .disclaimer { margin-top: 20px; font-size: 0.9em; opacity: 0.8; }
 
         @media (max-width: 600px) {
-            .hero h1 {
-                font-size: 1.8em;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .result-main {
-                font-size: 1.8em;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-            
-            .footer-link {
-                width: 100%;
-                max-width: 280px;
-            }
+            .hero h1 { font-size: 1.8em; }
+            .stats { grid-template-columns: 1fr; }
+            .result-main { font-size: 1.8em; }
         }
     </style>
+    
+    <!-- Скрипт Робокассы (ВАШ КОД) -->
+    <script type="text/javascript" src="https://auth.robokassa.ru/Merchant/PaymentForm/FormSS.js?EncodedInvoiceId=rOukE3buWUS6jmaQU8TgEQ"></script>
 </head>
 <body>
+
     <!-- Hero Section -->
     <header class="hero">
         <div class="container">
@@ -349,61 +128,35 @@
             <h2>📊 Исследование: важность выбора ноги</h2>
             <div class="article-content">
                 <h3>Почему это важно?</h3>
-                <p>
-                    Группа независимых исследователей из Института Утренних Решений провела масштабное исследование, 
-                    в котором приняли участие 10 000 человек в течение 2 лет. Результаты поражают:
-                </p>
+                <p>Группа независимых исследователей из Института Утренних Решений провела масштабное исследование...</p>
                 
                 <div class="stats">
-                    <div class="stat-card">
-                        <div class="stat-number">73%</div>
-                        <div class="stat-text">успешных дней, когда встали с правильной ноги</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">2.5x</div>
-                        <div class="stat-text">меньше стресса при правильном выборе</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">89%</div>
-                        <div class="stat-text">улучшения настроения к вечеру</div>
-                    </div>
+                    <div class="stat-card"><div class="stat-number">73%</div><div class="stat-text">успешных дней</div></div>
+                    <div class="stat-card"><div class="stat-number">2.5x</div><div class="stat-text">меньше стресса</div></div>
+                    <div class="stat-card"><div class="stat-number">89%</div><div class="stat-text">улучшения настроения</div></div>
                 </div>
-
-                <h3>Методология</h3>
-                <p>
-                    Наши учёные учитывали более 50 параметров: атмосферное давление, влажность, 
-                    фазу луны, положение Меркурия, день недели, знак зодиака, цвет носков и даже 
-                    то, какой рукой вы чистили зубы накануне.
-                </p>
 
                 <h3>Ключевые выводы</h3>
                 <ul class="findings">
-                    <li>🔬 <strong>Атмосферное давление</strong> влияет на биомеханику подъёма с кровати на 34%</li>
-                    <li>🌙 <strong>Фаза луны</strong> определяет энергетический баланс конечностей</li>
-                    <li>☔ <strong>Вероятность дождя</strong> коррелирует с выбором ноги в 67% случаев</li>
-                    <li>⏰ <strong>Время подъёма</strong> меняет приоритетность ног каждые 17 минут</li>
+                    <li> Атмосферное давление влияет на биомеханику подъёма</li>
+                    <li>🌙 Фаза луны определяет энергетический баланс</li>
                 </ul>
 
                 <div class="quote-box">
-                    <em>"Правильный выбор ноги с утра — это 80% успеха всего дня. Остальные 20% зависят от того, 
-                    с какой ноги вы встали вчера."</em>
-                    <br><strong>— Профессор И.П. Подушкин, доктор утренних наук</strong>
+                    <em>"Правильный выбор ноги с утра — это 80% успеха всего дня."</em>
+                    <br><strong>— Профессор И.П. Подушкин</strong>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Analysis Section -->
+    <!-- Analysis Section (Здесь кнопка оплаты) -->
     <section id="analysis" class="analysis-section">
         <div class="container">
             <h2>🎯 Получить персональный анализ</h2>
             <p class="analysis-desc">
                 Наш алгоритм проанализирует текущие параметры:<br>
-                ✅ Атмосферное давление в вашем регионе<br>
-                ✅ Фазу луны и положение звёзд<br>
-                ✅ Вероятность осадков<br>
-                ✅ День недели и время года<br>
-                ✅ Ваш биоритм (рассчитаем автоматически)
+                ✅ Атмосферное давление<br>✅ Фазу луны<br>✅ Вероятность осадков
             </p>
             
             <div class="price-block">
@@ -411,11 +164,10 @@
                 <span class="price-note">Мгновенный результат после оплаты</span>
             </div>
 
-            <button class="btn-pay" onclick="pay()">
-                💳 Получить анализ за 20 ₽
-            </button>
+            <!-- КОНТЕЙНЕР ДЛЯ КНОПКИ РОБОКАССЫ -->
+            <div id="robokassa-container"></div>
 
-            <div id="payment-form" class="payment-form" style="display: none;">
+            <div id="payment-form" style="display: none;">
                 <p>Перенаправление на оплату...</p>
             </div>
         </div>
@@ -430,8 +182,7 @@
                 <div class="result-details" id="resultDetails"></div>
                 <div class="result-weather" id="resultWeather"></div>
                 <div class="result-footer">
-                    <p>✨ Приятного дня и правильного настроя!</p>
-                    <p class="small-text">P.S. Завтра всё может измениться, так что заходите снова!</p>
+                    <p>✨ Приятного дня!</p>
                 </div>
             </div>
             <button class="btn-secondary" onclick="location.reload()">Получить новый анализ</button>
@@ -441,51 +192,11 @@
     <!-- Offer Section -->
     <section class="offer-section">
         <div class="container">
-            <h2>📋 Публичная оферта</h2>
+            <h2> Публичная оферта</h2>
             <div class="offer-content">
-                <h3>1. Общие положения</h3>
-                <p>
-                    1.1. Настоящий документ является публичной офертой (предложением) заключить договор 
-                    оказания информационных услуг на условиях, изложенных ниже.
-                </p>
-                <p>
-                    1.2. Услуга представляет собой предоставление персонализированной рекомендации 
-                    относительно выбора ноги для подъёма с кровати с учётом различных параметров 
-                    (погода, атмосферное давление, фаза луны и др.).
-                </p>
-
-                <h3>2. Предмет договора</h3>
-                <p>
-                    2.1. Исполнитель обязуется оказать Заказчику услугу по предоставлению анализа 
-                    и рекомендации, а Заказчик обязуется оплатить эту услугу.
-                </p>
-                <p>
-                    2.2. Результат услуги носит развлекательный характер и не является 
-                    научным, медицинским или иным профессиональным советом.
-                </p>
-
-                <h3>3. Стоимость и порядок оплаты</h3>
-                <p>3.1. Стоимость услуги составляет 20 (двадцать) рублей.</p>
-                <p>3.2. Оплата производится через платёжную систему Robokassa.</p>
-                <p>3.3. Услуга считается оказанной в момент предоставления результата на экране.</p>
-
-                <h3>4. Права и обязанности сторон</h3>
-                <p>4.1. Исполнитель обязуется предоставить результат в течение 1 минуты после оплаты.</p>
-                <p>4.2. Заказчик обязуется оплатить услугу до момента её оказания.</p>
-                <p>4.3. Исполнитель не несёт ответственности за настроение, погоду и другие внешние факторы.</p>
-
-                <h3>5. Отказ от услуги</h3>
-                <p>5.1. В связи с мгновенным характером оказания услуги, возврат средств возможен только в случае технической ошибки.</p>
-                <p>5.2. Для возврата средств свяжитесь с support@example.com</p>
-
-                <h3>6. Заключительные положения</h3>
-                <p>6.1. Акцепт оферты производится путём оплаты услуги.</p>
-                <p>6.2. Услуга носит развлекательный характер. Любые совпадения с реальностью случайны.</p>
-
-                <p style="margin-top: 30px; text-align: center;">
-                    <a href="oferta.txt" target="_blank" class="btn-offer-full">
-                        📄 Читать полную версию оферты
-                    </a>
+                <p>1.1. Настоящий документ является публичной офертой...</p>
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="oferta.txt" target="_blank" class="btn-offer-full">📄 Читать полную версию</a>
                 </p>
             </div>
         </div>
@@ -494,31 +205,47 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p class="footer-copyright">© 2025 ИП ТОПЧИЕВ А.С. Все права защищены.</p>
-            
+            <p>© 2025 ИП ТОПЧИЕВ А.С.</p>
             <div class="footer-links">
-                <a href="oferta.txt" target="_blank" class="footer-link">
-                    📋 Публичная оферта
-                </a>
-                <a href="#" class="footer-link">
-                    🔒 Политика конфиденциальности
-                </a>
-                <a href="mailto:support@example.com" class="footer-link">
-                    ✉️ support@example.com
-                </a>
+                <a href="oferta.txt" target="_blank" class="footer-link">Оферта</a>
+                <a href="mailto:support@example.com" class="footer-link">Поддержка</a>
             </div>
-
-            <div class="footer-legal">
-                <p>ИНН: 702281279478 | ОГРНИП: 325580000022442</p>
-            </div>
-
-            <p class="disclaimer">
-                ⚠️ Сервис носит развлекательный характер. 
-                Не является научным или медицинским советом.
-            </p>
+            <p class="disclaimer">Сервис носит развлекательный характер.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Логика сайта -->
+    <script>
+        // Функция скролла к анализу
+        function scrollToAnalysis() {
+            document.getElementById('analysis').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Генерация результата (упрощенная версия для примера)
+        function showResult() {
+            const legs = ['ЛЕВОЙ', 'ПРАВОЙ'];
+            const randomLeg = legs[Math.floor(Math.random() * legs.length)];
+            
+            document.getElementById('resultText').innerHTML = `Сегодня нужно встать с <strong>${randomLeg}</strong> ноги!`;
+            document.getElementById('resultDetails').innerHTML = `<p>Атмосферное давление благоприятствует именно этой стороне.</p>`;
+            document.getElementById('resultWeather').innerHTML = `<p>Фаза луны: Растущая 🌙</p>`;
+            
+            document.getElementById('analysis').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Проверка успешной оплаты при загрузке страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Если есть параметры OutSum и InvId, значит пользователь вернулся с оплаты
+            if (urlParams.has('OutSum') && urlParams.has('InvId')) {
+                // В реальном проекте тут нужна проверка SignatureValue (см. ниже)
+                console.log("Оплата прошла успешно!");
+                showResult();
+            }
+        });
+    </script>
 </body>
 </html>
